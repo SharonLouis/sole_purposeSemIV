@@ -8,8 +8,11 @@
         $cpassword = $_POST["cpassword"];
         
         //check whether this username exists
-        $existsSql = "SELECT * FROM `users` WHERE `username` = '$username'";
-        $result = mysqli_query($connection, $existsSql);
+        $existsSql = "SELECT * FROM `users` WHERE `username` = ?";
+        $existsStmt = mysqli_prepare($connection, $existsSql);
+        mysqli_stmt_bind_param($existsStmt, "s", $username);
+        mysqli_stmt_execute($existsStmt);
+        $result = mysqli_stmt_get_result($existsStmt);
         $numExistRows = mysqli_num_rows($result);
         if ($numExistRows > 0){
             $showError = "Username already exists!";
@@ -17,8 +20,10 @@
         else{
             if ($password == $cpassword){
                 $hash = password_hash($password, PASSWORD_DEFAULT);
-                $sql = "INSERT INTO `users` (`username`, `password`, `dt`) VALUES ('$username', '$hash', current_timestamp())";
-                $result = mysqli_query($connection, $sql);
+                $sql = "INSERT INTO `users` (`username`, `password`, `dt`) VALUES (?, ?, current_timestamp())";
+                $stmt = mysqli_prepare($connection, $sql);
+                mysqli_stmt_bind_param($stmt, "ss", $username, $hash);
+                $result = mysqli_stmt_execute($stmt);
                 if ($result){
                     $showAlert = true;
                 }
@@ -29,7 +34,6 @@
         }
     }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
