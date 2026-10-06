@@ -12,9 +12,9 @@ This was a Semester IV team project.
 
 | Member | Contribution |
 |---|---|
-| [Ketan Suresh Shelke](https://github.com/ketanshelke97) | [his role, e.g. backend, database, deployment] |
+| [Ketan Suresh Shelke](https://github.com/ketanshelke97) | Backend development (PHP), MySQL database design and setup, user authentication (login, signup, sessions, password hashing), shop filtering logic, foot quiz recommendation logic, cart operations and checkout flow, and deployment to InfinityFree |
 | [Nicole Lourdes Pereira](https://github.com/Nico2184-star) | UI design, category page, smart size converter |
-| [Sharon Louis](https://github.com/SharonLouis) | Foot quiz, UI design, AJAX operations, wishlist operations, security fixes (SQL injection prevention in login and signup using prepared statements) |
+| [Sharon Louis](https://github.com/SharonLouis) | Foot quiz UI, UI design, AJAX wishlist operations, security fixes (SQL injection prevention in login and signup using prepared statements) |
 
 **Repositories:**
 - This repository: https://github.com/SharonLouis/sole_purposeSemIV
